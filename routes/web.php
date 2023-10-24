@@ -19,3 +19,6 @@ Route::get('/', function () {
 });
 
 Route::get('/', [PostController::class, 'index']);
+
+Route::get('/posts/{post}', [PostController::class, 'show']);
+// '/posts/{対照データのID}'にGetリクエストが来たら、PostControllerのshowメソッドを実行する
