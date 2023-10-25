@@ -37,4 +37,14 @@ class PostController extends Controller
      {
          return view('posts.create');
      }
+     
+     public function store(Request $request, Post $post)
+     {
+         $input = $request['post']; // postをキーに持つリクエストパラメータを取得
+         $post->fill($input)->save();
+         // 空のPostインスタンスのプロパティを、受け取ったキーごとに上書き
+         // プロパティを上書きしたインスタンスをsave
+         return redirect('/posts/' . $post->id);
+         // 今回保存したpostのIDを含んだURLにリダイレクト
+     }
 }

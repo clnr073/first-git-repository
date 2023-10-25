@@ -9,8 +9,8 @@
     </head>
     <body class="antialiased">
         <h1>BLog Name</h1>
-        <form action="/posts" method="POST">
-            @csrf
+        <form action="/posts" method="POST"> <!--action属性でリクエストを送信するURLを定義、method属性でHTTPリクエストのメソッドを指定-->
+            @csrf <!--CSRFトークンを発行し、そのトークン情報をリクエスト時に一緒に送信-->
             <div class="title">
                 <h2>Title</h2>
                 <input type="text" name=post[title] placeholder="タイトル">
