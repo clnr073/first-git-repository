@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 //use宣言は外部にあるクラスをPostController内にインポートできる。
 //この場合、App\Models内のPostクラスをインポートしている。
 use App\Models\Post;
+use App\Http\Requests\PostRequest;
 /**
  * Post一覧を表示する
  * 
@@ -31,5 +32,20 @@ class PostController extends Controller
      {
          return view('posts.show')->with(['post' => $post]);
          //'post'はbladeファイルで使う変数。中身は$postはid=1のPostインスタンス。
+     }
+     
+     public function create()
+     {
+         return view('posts.create');
+     }
+     
+     public function store(Post $post, PostRequest $request)
+     {
+         $input = $request['post']; // postをキーに持つリクエストパラメータを取得
+         $post->fill($input)->save();
+         // 空のPostインスタンスのプロパティを、受け取ったキーごとに上書き
+         // プロパティを上書きしたインスタンスをsave
+         return redirect('/posts/' . $post->id);
+         // 今回保存したpostのIDを含んだURLにリダイレクト
      }
 }

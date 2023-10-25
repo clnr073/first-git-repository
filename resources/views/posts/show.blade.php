@@ -7,7 +7,7 @@
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     </head>
-    <body>
+    <body class="antialiased">
         <h1 class="title">
             {{ $post->title }}
         </h1>
@@ -17,8 +17,8 @@
                 <p>{{ $post->body }}</p>
             </div>
         </div>
-        <div class="footer">
-            <a href="/">戻る</a>
+        <div class="back">
+            [<a href="/">back</a>]
         </div>
     </body>
 </html>
