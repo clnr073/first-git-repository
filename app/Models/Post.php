@@ -20,8 +20,8 @@ class Post extends Model
     
     public function getPaginateByLimit(int $limit_count = 5)
     {
-        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
-        // updated_atカラムの降順で並び替え　// ページネーションして取得
+        return $this::with('category')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+        // Eagerローディング機能を使って、リレーションによって増えてしまうデータベースアクセスの回数を減らす
     }
     
     //　Categoryに対するリレーション
