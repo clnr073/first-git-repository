@@ -43,6 +43,7 @@ class PostController extends Controller
      public function store(Post $post, PostRequest $request)
      {
          $input = $request['post']; // postをキーに持つリクエストパラメータを取得
+         $input += ['user_id' => $request->user()->id];
          $post->fill($input)->save();
          // 空のPostインスタンスのプロパティを、受け取ったキーごとに上書き
          // プロパティを上書きしたインスタンスをsave
@@ -58,6 +59,7 @@ class PostController extends Controller
      public function update(PostRequest $request, Post $post)
      {
          $input_post = $request['post'];
+         $input_post += ['user_id' => $request->user()->id];
          $post->fill($input_post)->save();
          return redirect('/posts/' . $post->id);
      }
