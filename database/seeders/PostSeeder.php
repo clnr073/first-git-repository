@@ -4,8 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use DateTime;
+use Illuminate\Support\Facades\DB; // use Illuminate\Support\Facades\DB;　を追記
+use DateTime; // use DateTime;　を追記
 
 class PostSeeder extends Seeder
 {
@@ -16,8 +16,6 @@ class PostSeeder extends Seeder
      */
      
     // DB::table('テーブル名')->insert(['カラム名' => 'データ' ] );
-    // use Illuminate\Support\Facades\DB;　を追記
-    // use DateTime;　を追記
     public function run()
     {
         DB::table('posts')->insert([

@@ -6,13 +6,13 @@
     <body class="antialiased">
         <h1>Blog Name</h1>
         <a href="/posts/create">create</a>
-        <div class='posts'>
-            @foreach($posts as $post)
+        <div class='own_posts'>
+            @foreach($own_posts as $post)
                 <div class='post'>
                     <h2 class='title'>
                         <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </h2>
-                     <a href="/user/" >
+                    <a href="/user/" >
                         <small>{{ $post->user->name }}</small>
                     </a>
                     <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
@@ -29,7 +29,7 @@
             [<a href="/">back</a>]
         </div>
         <div class='paginate'>
-            {{ $posts->links() }}
+            {{ $own_posts->links() }}
         </div>
         <script>
             function deletePost(id) {

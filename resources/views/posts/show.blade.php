@@ -6,7 +6,9 @@
         <h1 class="title">
             {{ $post->title }}
         </h1>
-        <small>{{ $post->user->name }}</small>
+        <a href="/user/" >
+            <small>{{ $post->user->name }}</small>
+        </a>
         <div class="content">
             <div class="content__post">
                 <h3>本文</h3>
