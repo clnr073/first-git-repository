@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Blog</title>
-        <!-- Fonts -->
-        <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    </head>
+<x-app-layout>
+    <x-slot name="header">
+        Create
+    </x-slot>
+    
     <body class="antialiased">
         <h1>Blog Name</h1>
         <form action="/posts" method="POST"> <!--action属性でリクエストを送信するURLを定義、method属性でHTTPリクエストのメソッドを指定-->
@@ -36,3 +32,4 @@
         </div>
     </body>
 </html>
+</x-app-layout>

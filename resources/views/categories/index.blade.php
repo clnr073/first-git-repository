@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>Blog</title>
-        <!-- Fonts -->
-        <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    </head>
+<x-app-layout>
+    <x-slot name="header">
+        　Index
+    </x-slot>
+    
     <body class="antialiased">
         <h1>Blog Name</h1>
         <a href="/posts/create">create</a>
@@ -16,6 +12,9 @@
                     <h2 class='title'>
                         <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </h2>
+                     <a href="/user/" >
+                        <small>{{ $post->user->name }}</small>
+                    </a>
                     <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
                     <p class='body'>{{ $post->body }}</p>
                     <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
@@ -44,4 +43,4 @@
             }
         </script>
     </body>
-</html>
+</x-app-layout>
